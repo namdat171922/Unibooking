@@ -1,0 +1,144 @@
+{
+  "theme": "Light",
+  "archetype": "1 (Organic & Earthy)",
+  "colors": {
+    "primary": {
+      "DEFAULT": "#E05D43",
+      "foreground": "#FFFFFF",
+      "hover": "#C84B31"
+    },
+    "secondary": {
+      "DEFAULT": "#2C4A3B",
+      "foreground": "#FFFFFF",
+      "hover": "#1E3329"
+    },
+    "accent": {
+      "DEFAULT": "#F5F2ED",
+      "foreground": "#111827",
+      "hover": "#E6E2D8"
+    },
+    "background": "#FAFAF9",
+    "surface": "#FFFFFF",
+    "border": "#E5E7EB",
+    "ring": "#E05D43",
+    "text": {
+      "primary": "#111827",
+      "secondary": "#4B5563",
+      "muted": "#9CA3AF"
+    },
+    "success": "#10B981",
+    "warning": "#F59E0B",
+    "error": "#EF4444"
+  },
+  "typography": {
+    "fonts": {
+      "heading": "Outfit, sans-serif",
+      "body": "Manrope, sans-serif"
+    },
+    "scales": {
+      "h1": "text-4xl sm:text-5xl lg:text-6xl tracking-tight font-bold",
+      "h2": "text-2xl sm:text-3xl lg:text-4xl tracking-tight font-bold",
+      "h3": "text-xl sm:text-2xl tracking-tight font-semibold",
+      "h4": "text-lg sm:text-xl font-semibold",
+      "body": "text-base leading-relaxed",
+      "small": "text-sm leading-normal",
+      "overline": "text-xs font-bold uppercase tracking-[0.2em]"
+    }
+  },
+  "spacing_and_layout": {
+    "container_padding": "px-4 sm:px-6 lg:px-8",
+    "section_spacing": "py-16 md:py-24",
+    "gap_standard": "gap-6 md:gap-8",
+    "border_radius": {
+      "small": "rounded-md",
+      "medium": "rounded-xl",
+      "large": "rounded-2xl",
+      "full": "rounded-full"
+    },
+    "cards": {
+      "style": "bg-white border border-gray-200 rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-200",
+      "padding": "p-6 md:p-8"
+    }
+  },
+  "motion_and_interactions": {
+    "hover": "transition-all duration-200 ease-in-out",
+    "active": "active:scale-[0.98]",
+    "focus": "focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2",
+    "page_transition": "animate-in fade-in duration-500"
+  },
+  "components": {
+    "buttons": {
+      "primary": "bg-primary text-white hover:bg-primary-hover font-semibold rounded-xl px-6 py-3 transition-colors",
+      "secondary": "bg-secondary text-white hover:bg-secondary-hover font-semibold rounded-xl px-6 py-3 transition-colors",
+      "outline": "bg-transparent border-2 border-gray-200 text-gray-900 hover:border-gray-900 font-semibold rounded-xl px-6 py-3 transition-colors",
+      "ghost": "bg-transparent text-gray-600 hover:text-gray-900 hover:bg-gray-100 font-semibold rounded-xl px-6 py-3 transition-colors"
+    },
+    "inputs": "bg-white border border-gray-200 rounded-xl px-4 py-3 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-gray-400",
+    "navigation": "sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-100",
+    "badges": "inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-accent text-gray-800"
+  },
+  "icons": {
+    "library": "lucide-react",
+    "stroke_width": 1.5
+  },
+  "media": {
+    "images": [
+      {
+        "category": "hero_background",
+        "url": "https://images.unsplash.com/photo-1544717304-a2db4a7b16ee?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1Mjh8MHwxfHNlYXJjaHwyfHx3b21hbiUyMHNraW4lMjBjYXJlfGVufDB8fHx8MTc4MTQzNDExNXww&ixlib=rb-4.1.0&q=85",
+        "description": "Woman receiving skin care, used for main hero section background"
+      },
+      {
+        "category": "service_category_spa",
+        "url": "https://images.pexels.com/photos/18120174/pexels-photo-18120174.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "description": "Spa wellness and massage"
+      },
+      {
+        "category": "service_category_nails",
+        "url": "https://images.pexels.com/photos/6135675/pexels-photo-6135675.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "description": "Nail salon and manicure"
+      },
+      {
+        "category": "service_category_barber",
+        "url": "https://images.pexels.com/photos/37764947/pexels-photo-37764947.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "description": "Barber shop interior"
+      },
+      {
+        "category": "portfolio_tattoo",
+        "url": "https://images.unsplash.com/photo-1605647533135-51b5906087d0?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzV8MHwxfHNlYXJjaHwxfHx0YXR0b28lMjBhcnRpc3QlMjBwb3J0cmFpdHxlbnwwfHx8fDE3ODE0MzQxMDR8MA&ixlib=rb-4.1.0&q=85",
+        "description": "Tattoo artist work"
+      },
+      {
+        "category": "staff_portrait_female",
+        "url": "https://images.unsplash.com/photo-1662850886700-4ec19bd30d11?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1Mjh8MHwxfHNlYXJjaHwyfHx3b21hbiUyMHNtaWxpbmclMjBwb3J0cmFpdHxlbnwwfHx8fDE3ODE0MzQxMDl8MA&ixlib=rb-4.1.0&q=85",
+        "description": "Female staff portrait"
+      },
+      {
+        "category": "staff_portrait_male",
+        "url": "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1ODR8MHwxfHNlYXJjaHwxfHxtYW4lMjBwb3J0cmFpdCUyMHNtaWxpbmd8ZW58MHx8fHwxNzgxNDM0MTA5fDA&ixlib=rb-4.1.0&q=85",
+        "description": "Male staff portrait"
+      },
+      {
+        "category": "business_logo_placeholder",
+        "url": "https://images.unsplash.com/photo-1769985090528-5a4da245e9a8?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODF8MHwxfHNlYXJjaHwzfHxtb2Rlcm4lMjBidXNpbmVzcyUyMGxvZ298ZW58MHx8fHwxNzgxNDM0MTE1fDA&ixlib=rb-4.1.0&q=85",
+        "description": "Coffee shop style business logo for generic business placeholders"
+      }
+    ]
+  },
+  "instructions_to_main_agent": {
+    "general": "Build a modern marketplace platform inspired by Airbnb and Fresha. Prioritize clean spacing, rounded corners, large imagery, and high contrast typography. Ensure the app feels trustworthy, premium, and friendly.",
+    "testing": "All interactive and key informational elements MUST include a 'data-testid' attribute (e.g., data-testid='book-now-button').",
+    "layout_patterns": {
+      "homepage": "Use a hero section with a search bar overlaid on a subtle image or clean background. Follow with horizontally scrollable category pills, and a bento grid for featured/popular businesses.",
+      "search_results": "Implement a split layout: Left side scrollable list of business cards, Right side sticky map view (Airbnb style).",
+      "business_profile": "Top area: large masonry gallery of business images. Content area: Left column for description, services list, staff, and reviews. Right column: Sticky booking widget.",
+      "booking_flow": "Use a clean, step-by-step modal or dedicated page (Step 1: Select Service, Step 2: Select Staff/Time, Step 3: Confirm). Keep it under 4 steps, minimizing cognitive load."
+    },
+    "components": {
+      "cards": "Business cards should feature a 16:9 image thumbnail, clear typography for title, a star rating, service tags, and price/distance.",
+      "modals": "Use Shadcn Dialogs with customized rounded corners (rounded-2xl) and backdrop blur.",
+      "forms": "Use Shadcn Form components. Inputs should be large and touch-friendly (py-3)."
+    },
+    "tech_stack": "Use React, Tailwind CSS, Shadcn UI, and lucide-react. Do not use generic html inputs for complex forms, use Shadcn equivalents."
+  }
+}
