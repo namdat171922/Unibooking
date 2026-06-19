@@ -9,7 +9,7 @@ class Settings(BaseSettings):
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 15
     REFRESH_TOKEN_EXPIRE_DAYS: int = 7
     
-    ADMIN_EMAIL: str = "admin@unibooking.com"
+    ADMIN_EMAIL: str = "admin@stylematch.com"
     ADMIN_PASSWORD: str = "admin123"
     
     CLOUDINARY_CLOUD_NAME: str = ""

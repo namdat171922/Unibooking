@@ -1,4 +1,4 @@
-# UniBooking - Database Design
+# StyleMatch - Database Design
 
 ## Database: PostgreSQL
 

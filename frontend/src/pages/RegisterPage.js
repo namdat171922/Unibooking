@@ -180,16 +180,16 @@ const RegisterPage = () => {
 
           {/* Right Side - Glassmorphic Form */}
           <div className="w-full animate-in fade-in slide-in-from-right duration-700">
-            <div className="bg-white/40 backdrop-blur-2xl p-8 lg:p-12 rounded-[2rem] shadow-2xl border border-white/50 relative overflow-hidden">
+            <div className="bg-white/95 backdrop-blur-md p-8 lg:p-12 rounded-[2rem] shadow-2xl border border-gray-200 relative overflow-hidden">
               {/* Shimmer Effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer" />
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-shimmer" />
               
               <div className="relative">
                 <div className="text-center mb-8">
                   <div className="inline-block p-3 bg-primary/10 rounded-2xl mb-4">
                     <Sparkles className="w-8 h-8 text-primary" />
                   </div>
-                  <h2 className="text-4xl font-bold mb-2" style={{ fontFamily: 'Outfit, sans-serif' }} data-testid="register-title">
+                  <h2 className="text-4xl font-bold mb-2 text-text-primary" style={{ fontFamily: 'Outfit, sans-serif' }} data-testid="register-title">
                     Create Account
                   </h2>
                   <p className="text-text-secondary">Start your style journey today</p>

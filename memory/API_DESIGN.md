@@ -1,8 +1,8 @@
-# UniBooking - API Design
+# StyleMatch - API Design
 
 ## Base URL
 ```
-https://appointment-hub-754.preview.emergentagent.com/api/v1
+https://api.example.com/api/v1
 ```
 
 ## Authentication

@@ -2,7 +2,6 @@ from fastapi import FastAPI, APIRouter, Depends, HTTPException, status, Response
 from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 from pathlib import Path
-from motor.motor_asyncio import AsyncIOMotorClient
 from pydantic import BaseModel, EmailStr, Field
 from typing import List, Optional
 from datetime import datetime, timezone, date, time, timedelta
@@ -13,14 +12,16 @@ import bcrypt
 import jwt
 from bson import ObjectId
 
+try:
+    from mongodb import MongoConnectionError, close_mongo_connection, connect_to_mongo
+except ImportError:
+    from backend.mongodb import MongoConnectionError, close_mongo_connection, connect_to_mongo
+
 # Load environment variables first
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
 
-# MongoDB connection
-mongo_url = os.environ['MONGO_URL']
-client = AsyncIOMotorClient(mongo_url)
-db = client[os.environ['DB_NAME']]
+db = None
 
 # Logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -483,7 +484,11 @@ app.include_router(api_router)
 
 @app.on_event("startup")
 async def startup_event():
+    global db
+
     logger.info("Starting StyleMatch API...")
+    db = await connect_to_mongo(os.environ["MONGO_URL"], os.environ["DB_NAME"])
+    logger.info("Connected to MongoDB database: %s", os.environ["DB_NAME"])
     
     # Seed admin
     admin_email = os.environ.get("ADMIN_EMAIL", "admin@stylematch.com")
@@ -502,8 +507,10 @@ async def startup_event():
         })
         logger.info(f"Admin user created: {admin_email}")
     
-    # Write credentials
-    with open("/app/memory/test_credentials.md", "w") as f:
+    # Write credentials for local/manual testing.
+    credentials_path = ROOT_DIR.parent / "memory" / "test_credentials.md"
+    credentials_path.parent.mkdir(parents=True, exist_ok=True)
+    with credentials_path.open("w", encoding="utf-8") as f:
         f.write("# Test Credentials for StyleMatch\n\n")
         f.write("## Admin Account\n")
         f.write(f"- Email: {admin_email}\n")
@@ -514,7 +521,7 @@ async def startup_event():
 
 @app.on_event("shutdown")
 async def shutdown_event():
-    client.close()
+    close_mongo_connection()
 
 @app.get("/")
 async def root():
@@ -522,4 +529,15 @@ async def root():
 
 @app.get("/health")
 async def health():
-    return {"status": "healthy"}
+    if db is None:
+        return {"status": "unhealthy", "database": "disconnected"}
+
+    try:
+        await db.command("ping")
+    except MongoConnectionError:
+        raise
+    except Exception as exc:
+        logger.error("MongoDB health check failed: %s", exc)
+        return {"status": "unhealthy", "database": "disconnected"}
+
+    return {"status": "healthy", "database": "connected"}

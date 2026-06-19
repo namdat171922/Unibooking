@@ -106,7 +106,7 @@ const HomePage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 md:py-24 bg-secondary text-white">
+      <section className="py-16 md:py-24 bg-[#24362F] text-white">
         <div className="container text-center">
           <h2
             className="text-3xl sm:text-4xl font-bold mb-6"
@@ -119,7 +119,7 @@ const HomePage = () => {
           </p>
           <Link
             to="/register"
-            className="inline-block bg-white text-secondary font-semibold rounded-xl px-8 py-4 hover:bg-accent transition-colors"
+            className="inline-block bg-primary text-white font-semibold rounded-xl px-8 py-4 hover:bg-primary-hover transition-colors shadow-lg shadow-black/20"
             data-testid="cta-register-business"
           >
             Register Your Business
@@ -131,7 +131,7 @@ const HomePage = () => {
       <footer className="py-12 bg-white border-t border-gray-200">
         <div className="container text-center">
           <p className="text-text-secondary">
-            © 2026 UniBooking. All rights reserved.
+            © 2026 StyleMatch. All rights reserved.
           </p>
         </div>
       </footer>

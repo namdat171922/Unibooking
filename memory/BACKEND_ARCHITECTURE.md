@@ -1,4 +1,4 @@
-# UniBooking - Backend Architecture
+# StyleMatch - Backend Architecture
 
 ## Tech Stack
 
@@ -314,7 +314,7 @@ class StorageService:
     async def upload_image(self, file: UploadFile, folder: str) -> str:
         result = cloudinary.uploader.upload(
             file.file,
-            folder=f"unibooking/{folder}",
+            folder=f"StyleMatch/{folder}",
             transformation=[
                 {"width": 1200, "crop": "limit"},
                 {"quality": "auto", "fetch_format": "auto"}
@@ -333,7 +333,7 @@ class EmailService:
     async def send_booking_confirmation(self, to: str, appointment_data: dict):
         resend.api_key = self.api_key
         resend.Emails.send({
-            "from": "noreply@unibooking.com",
+            "from": "noreply@StyleMatch.com",
             "to": to,
             "subject": "Booking Confirmation",
             "html": self._render_template("booking_confirmation.html", appointment_data)

@@ -1,8 +1,8 @@
-# UniBooking MVP - Product Requirements Document
+# StyleMatch MVP - Product Requirements Document
 
 ## 1. Executive Summary
 
-UniBooking is a service-booking marketplace connecting customers with service providers (salons, barbershops, spas, beauty clinics, tattoo studios). The platform emphasizes visual discovery, fast booking (<30s), and portfolio-driven decisions.
+StyleMatch is a service-booking marketplace connecting customers with service providers (salons, barbershops, spas, beauty clinics, tattoo studios). The platform emphasizes visual discovery, fast booking (<30s), and portfolio-driven decisions.
 
 **Target Market**: Southeast Asia, University startup environments
 **Differentiation**: Portfolio-first discovery + Map integration + Sub-30s booking
@@ -33,7 +33,7 @@ UniBooking is a service-booking marketplace connecting customers with service pr
 ## 3. User Journeys
 
 ### Journey 1: First-Time Booking
-1. Sarah discovers UniBooking through social media
+1. Sarah discovers StyleMatch through social media
 2. Opens homepage → sees visually rich business grid + map
 3. Clicks category "Hair Salon"
 4. Browses portfolio images in grid view
@@ -53,7 +53,7 @@ UniBooking is a service-booking marketplace connecting customers with service pr
 6. Receives SMS confirmation
 
 ### Journey 3: Business Onboarding
-1. Maria hears about UniBooking from peer
+1. Maria hears about StyleMatch from peer
 2. Registers business account
 3. Fills business profile (name, description, location, hours)
 4. Adds services with prices
