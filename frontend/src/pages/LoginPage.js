@@ -208,7 +208,7 @@ const LoginPage = () => {
                   <h2 className="text-4xl font-bold mb-2" style={{ fontFamily: 'Outfit, sans-serif' }} data-testid="login-title">
                     Welcome Back
                   </h2>
-                  <p className="text-text-secondary">Sign in to continue your journey</p>
+                  <p className="text-gray-900 dark:text-white">Sign in to continue your journey</p>
                 </div>
 
                 <form onSubmit={handleSubmit} className="space-y-6">
@@ -253,7 +253,7 @@ const LoginPage = () => {
                   <button
                     type="submit"
                     disabled={loading}
-                    className="w-full bg-gradient-to-r from-primary via-secondary to-primary bg-size-200 bg-pos-0 hover:bg-pos-100 text-white font-bold py-5 rounded-2xl transition-all duration-500 flex items-center justify-center gap-3 group disabled:opacity-50 disabled:cursor-not-allowed shadow-2xl hover:shadow-primary/50 hover:scale-[1.02] active:scale-[0.98] relative overflow-hidden"
+                    className="w-full bg-gradient-to-r from-primary via-secondary to-primary bg-size-200 bg-pos-0 hover:bg-pos-100 text-gray-900 dark:text-white font-bold py-5 rounded-2xl transition-all duration-500 flex items-center justify-center gap-3 group disabled:opacity-50 disabled:cursor-not-allowed shadow-2xl hover:shadow-primary/50 hover:scale-[1.02] active:scale-[0.98] relative overflow-hidden"
                     data-testid="login-submit-button"
                   >
                     <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/30 to-white/0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />

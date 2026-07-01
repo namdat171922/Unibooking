@@ -362,6 +362,37 @@ async def create_business(business_data: BusinessCreate, request: Request):
         logger.error(f"Create business error: {str(e)}")
         raise HTTPException(status_code=500, detail=str(e))
 
+@api_router.put("/businesses/{business_id}/hours")
+async def update_business_hours(business_id: str, opening_hours: dict, request: Request):
+    try:
+        user = await get_current_user(request)
+        
+        business = await db.businesses.find_one({"id": business_id})
+        if not business:
+            raise HTTPException(status_code=404, detail="Business not found")
+        
+        # Check authorization - only business owner or admin can update hours
+        if business["owner_id"] != user["_id"] and user["role"] != "admin":
+            raise HTTPException(status_code=403, detail="Not authorized to update business hours")
+        
+        # Save opening hours to business document
+        await db.businesses.update_one(
+            {"id": business_id},
+            {
+                "$set": {
+                    "opening_hours": opening_hours,
+                    "updated_at": datetime.now(timezone.utc).isoformat()
+                }
+            }
+        )
+        
+        return {"status": "success", "message": "Opening hours updated"}
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Update business hours error: {str(e)}")
+        raise HTTPException(status_code=500, detail=str(e))
+
 # SERVICE ROUTES
 @api_router.get("/businesses/{business_id}/services")
 async def list_services(business_id: str):

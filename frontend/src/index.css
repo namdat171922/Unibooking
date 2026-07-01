@@ -18,6 +18,20 @@
   --text-muted: #9CA3AF;
 }
 
+.dark {
+  --primary: #FF7A5C;
+  --primary-hover: #E05D43;
+  --secondary: #4A9D7D;
+  --secondary-hover: #2C4A3B;
+  --accent: #2D3748;
+  --background: #111827;
+  --surface: #1F2937;
+  --border: #374151;
+  --text-primary: #F3F4F6;
+  --text-secondary: #D1D5DB;
+  --text-muted: #9CA3AF;
+}
+
 body {
   font-family: 'Manrope', sans-serif;
   background-color: var(--background);
@@ -25,6 +39,7 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -96,6 +111,16 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
+.dark .card {
+  background-color: var(--surface);
+  border-color: var(--border);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.dark .card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
 input, textarea, select {
   background-color: white;
   border: 1px solid var(--border);
@@ -104,11 +129,23 @@ input, textarea, select {
   font-size: 16px;
   transition: all 0.2s ease-in-out;
   outline: none;
+  color: var(--text-primary);
 }
 
 input:focus, textarea:focus, select:focus {
   border-color: var(--primary);
   ring: 1px solid var(--primary);
+}
+
+.dark input, .dark textarea, .dark select {
+  background-color: var(--surface);
+  border-color: var(--border);
+  color: var(--text-primary);
+}
+
+.dark input:focus, .dark textarea:focus, .dark select:focus {
+  border-color: var(--secondary);
+  box-shadow: 0 0 0 3px rgba(74, 157, 125, 0.1);
 }
 
 .container {
@@ -127,4 +164,163 @@ input:focus, textarea:focus, select:focus {
   .container {
     padding: 0 32px;
   }
+}
+
+/* Animated site-wide dynamic background */
+.animated-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: transparent;
+}
+
+/* Two large, full-viewport diagonal gradient layers that translate from TL -> BR */
+.animated-bg::before,
+.animated-bg::after {
+  content: '';
+  position: absolute;
+  inset: -25%;
+  z-index: 0;
+  pointer-events: none;
+  transform: translate3d(-30%, -30%, 0) rotate(0.001deg);
+  filter: blur(80px) saturate(1.1);
+}
+
+.animated-bg::before {
+  background: linear-gradient(135deg, var(--bg-a, rgba(16,185,129,0.30)), var(--bg-b, rgba(14,165,233,0.30)));
+  opacity: 0.9;
+  animation: moveDiagBefore 16s linear infinite;
+}
+
+.animated-bg::after {
+  background: linear-gradient(135deg, var(--bg-c, rgba(6,182,212,0.22)), rgba(255,255,255,0));
+  opacity: 0.85;
+  mix-blend-mode: screen;
+  animation: moveDiagAfter 22s linear infinite reverse;
+}
+
+/* Make the ripple overlay a direct child so it's more visible */
+.animated-bg > .ripple-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: repeating-linear-gradient(-45deg, rgba(255,255,255,0.06) 0px, rgba(255,255,255,0.06) 8px, transparent 8px, transparent 32px);
+  mix-blend-mode: overlay;
+  filter: blur(6px) contrast(1.05);
+  opacity: 0.7;
+  animation: rippleMove 8s linear infinite;
+}
+
+/* SVG wave styles */
+.wave-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.wave-glow {
+  transform-origin: center;
+  animation: glowDrift 24s ease-in-out infinite;
+}
+
+.glow-two {
+  animation-duration: 32s;
+  animation-direction: reverse;
+}
+
+.wave-layer.layer1 {
+  transform-origin: center;
+  animation: waveMove1 28s ease-in-out infinite;
+  filter: blur(26px) saturate(1.25) contrast(1.04);
+}
+
+.wave-layer.layer2 {
+  transform-origin: center;
+  animation: waveMove2 32s ease-in-out infinite reverse;
+  filter: blur(36px) saturate(1.12) contrast(1.03);
+}
+
+.wave-layer.layer3 {
+  transform-origin: center;
+  animation: waveMove3 40s ease-in-out infinite;
+  filter: blur(30px) saturate(1.1) contrast(1.02);
+}
+
+.wave-layer.layer4 {
+  transform-origin: center;
+  animation: waveMove4 46s ease-in-out infinite reverse;
+  filter: blur(22px) saturate(1.08) contrast(1.02);
+}
+
+@keyframes waveMove1 {
+  0% { transform: translate3d(-16%, -18%, 0) rotate(-4deg) scale(1.03); }
+  50% { transform: translate3d(16%, 18%, 0) rotate(2deg) scale(1.08); }
+  100% { transform: translate3d(-16%, -18%, 0) rotate(-4deg) scale(1.03); }
+}
+
+@keyframes waveMove2 {
+  0% { transform: translate3d(-20%, -24%, 0) rotate(-6deg) scale(1.05); }
+  50% { transform: translate3d(20%, 24%, 0) rotate(4deg) scale(1.08); }
+  100% { transform: translate3d(-20%, -24%, 0) rotate(-6deg) scale(1.05); }
+}
+
+@keyframes waveMove3 {
+  0% { transform: translate3d(-10%, -12%, 0) rotate(-3deg) scale(1.02); }
+  50% { transform: translate3d(10%, 12%, 0) rotate(3deg) scale(1.05); }
+  100% { transform: translate3d(-10%, -12%, 0) rotate(-3deg) scale(1.02); }
+}
+
+@keyframes waveMove4 {
+  0% { transform: translate3d(-24%, -28%, 0) rotate(-7deg) scale(1.07); }
+  50% { transform: translate3d(24%, 28%, 0) rotate(5deg) scale(1.1); }
+  100% { transform: translate3d(-24%, -28%, 0) rotate(-7deg) scale(1.07); }
+}
+
+@keyframes glowDrift {
+  0% { transform: translate3d(-8%, -8%, 0) scale(1); }
+  50% { transform: translate3d(12%, 16%, 0) scale(1.08); }
+  100% { transform: translate3d(-8%, -8%, 0) scale(1); }
+}
+
+@keyframes gradientDiagonal {
+  0% { background-position: 0% 0%; transform: translate3d(0,0,0); }
+  50% { background-position: 100% 100%; transform: translate3d(6px,6px,0); }
+  100% { background-position: 0% 0%; transform: translate3d(0,0,0); }
+}
+
+@keyframes blobDiagonal {
+  0% { transform: translate(-10px,-10px) scale(1); opacity: 0.95; }
+  25% { transform: translate(40px, 30px) scale(1.06); opacity: 0.9; }
+  50% { transform: translate(90px, 70px) scale(1.12); opacity: 0.85; }
+  75% { transform: translate(40px, 30px) scale(1.04); opacity: 0.9; }
+  100% { transform: translate(-10px,-10px) scale(1); opacity: 0.95; }
+}
+
+@keyframes moveDiagBefore {
+  0% { transform: translate3d(-30%, -30%, 0) rotate(0.001deg); }
+  50% { transform: translate3d(30%, 30%, 0) rotate(0.001deg); }
+  100% { transform: translate3d(-30%, -30%, 0) rotate(0.001deg); }
+}
+
+@keyframes moveDiagAfter {
+  0% { transform: translate3d(-20%, -20%, 0) rotate(0.001deg); }
+  50% { transform: translate3d(40%, 40%, 0) rotate(0.001deg); }
+  100% { transform: translate3d(-20%, -20%, 0) rotate(0.001deg); }
+}
+
+@keyframes rippleMove {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 300% 300%; }
+}
+
+/* Make sure app content sits above the animated background */
+.app-content-above-animated {
+  position: relative;
+  z-index: 10;
 }

@@ -17,6 +17,14 @@ export const businessesAPI = {
     });
     return data;
   },
+  updateHours: async (businessId, openingHours) => {
+    const { data } = await axios.put(
+      `${API}/businesses/${businessId}/hours`,
+      openingHours,
+      { withCredentials: true }
+    );
+    return data;
+  },
 };
 
 export const servicesAPI = {

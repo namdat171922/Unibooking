@@ -198,7 +198,7 @@ const RegisterPage = () => {
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div className="space-y-2 group">
                     <label className="block text-sm font-semibold text-text-primary" htmlFor="fullName">
-                      Full Name
+                      User Name
                     </label>
                     <div className="relative">
                       <UserIcon className="absolute left-4 top-1/2 transform -translate-y-1/2 text-text-muted w-5 h-5 group-focus-within:text-primary group-focus-within:scale-110 transition-all" />
@@ -273,7 +273,7 @@ const RegisterPage = () => {
                   <button
                     type="submit"
                     disabled={loading}
-                    className="w-full bg-gradient-to-r from-primary to-primary-hover text-white font-bold py-5 rounded-2xl transition-all duration-300 flex items-center justify-center gap-3 group disabled:opacity-50 disabled:cursor-not-allowed shadow-2xl hover:shadow-primary/50 hover:scale-[1.02] active:scale-[0.98] relative overflow-hidden"
+                    className="w-full bg-gradient-to-r from-primary to-primary-hover text-gray-900 dark:text-white font-bold py-5 rounded-2xl transition-all duration-300 flex items-center justify-center gap-3 group disabled:opacity-50 disabled:cursor-not-allowed shadow-2xl hover:shadow-primary/50 hover:scale-[1.02] active:scale-[0.98] relative overflow-hidden"
                     data-testid="register-submit-button"
                   >
                     <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
